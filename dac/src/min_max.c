@@ -56,11 +56,13 @@ MinMax get_min_max(int *arr, int begin, int end) {
 
     MinMax LMinMax = get_min_max(arr, begin, mid);
     MinMax RMinMax = get_min_max(arr, mid + 1, end);
+    // Compare results from 2 halves and set the max value to result
     if (LMinMax.max_val > RMinMax.max_val) {
       res.max_val = LMinMax.max_val;
     } else {
       res.max_val = RMinMax.max_val;
     }
+    // Compare results from 2 halves  and set the min value to result
     if (LMinMax.min_val < RMinMax.min_val) {
       res.min_val = LMinMax.min_val;
     } else {
