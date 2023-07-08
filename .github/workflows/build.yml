@@ -11,12 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up C compiler
-        uses: actions/setup-cpp@v2
-        with:
-          compiler: clang
+        uses: actions/checkout@v3
 
       - name: Build and Test
         working-directory: dac
