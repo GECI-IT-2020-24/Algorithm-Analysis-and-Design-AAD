@@ -1,0 +1,28 @@
+name: Run Unit Test :) 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up C compiler
+        uses: actions/setup-cpp@v2
+        with:
+          compiler: clang
+
+      - name: Build and Test
+        working-directory: dac
+        run: |
+          make all
+          chmod +x ./dac_test
+          ./dac_test
+          make clean
+
