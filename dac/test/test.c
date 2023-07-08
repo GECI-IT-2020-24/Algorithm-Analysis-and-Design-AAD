@@ -33,12 +33,10 @@ void sort_tests() {
     // allocate is stack : )
     // why no heap allocation
     // 1 element alle ulle : )
-    int m_res1[get_len(arr1)];
     // calculate res
-    quick_sort(q_res1, arr1_len, elem1_size, int_cmp);
-    merge_sort(m_res1, arr1_len, elem1_size, int_cmp);
+    quick_sort(q_res1, arr1_len, elem1_size, int_cmp_asc);
     int res1[] = {3};
-    TEST_ASSERT_EQUAL(true, cmp_sort_res(res1, q_res1, m_res1, arr1_len));
+    TEST_ASSERT_EQUAL(true, cmp_sort_res(res1, q_res1, arr1_len));
   }
   {
     // case 2 -> multiple elements
@@ -46,15 +44,10 @@ void sort_tests() {
     int *q_res2 = arr2;
     size_t arr2_len = get_len(arr2);
     size_t elem2_size = sizeof(arr2[0]);
-    // allocate is stack : )
-    int m_res2[get_len(arr2)];
     // calculate res
-    // why no heap allocation
-    // heap allocation -> overhead
-    quick_sort(q_res2, arr2_len, elem2_size, int_cmp);
-    merge_sort(m_res2, arr2_len, elem2_size, int_cmp);
+    quick_sort(q_res2, arr2_len, elem2_size, int_cmp_asc);
     int res2[] = {1, 2, 3, 3, 5, 9, 20, 40, 55};
-    TEST_ASSERT_EQUAL(true, cmp_sort_res(res2, q_res2, m_res2, arr2_len));
+    TEST_ASSERT_EQUAL(true, cmp_sort_res(res2, q_res2, arr2_len));
   }
   {
     // case 3 -> larger list with more duplicates : )
@@ -63,16 +56,11 @@ void sort_tests() {
     int *q_res3 = arr3;
     size_t arr3_len = get_len(arr3);
     size_t elem3_size = sizeof(arr3[0]);
-    // allocate is stack : )
-    // why no heap allocation
-    // heap allocation -> overhead
-    int m_res3[get_len(arr3)];
     // calculate res
-    quick_sort(q_res3, arr3_len, elem3_size, int_cmp);
-    merge_sort(m_res3, arr3_len, elem3_size, int_cmp);
-    int res3[] = {3,   23,  65,  75,   75, 75, 94,   500,
-                  500, 800, 890, 1628, 47, 2,  1002, 2001};
-    TEST_ASSERT_EQUAL(true, cmp_sort_res(res3, q_res3, m_res3, arr3_len));
+    quick_sort(q_res3, arr3_len, elem3_size, int_cmp_asc);
+    int res3[] = {2,  3,   23,  47,  65,  75,   75,   75,
+                  94, 500, 500, 800, 890, 1002, 1628, 2001};
+    TEST_ASSERT_EQUAL(true, cmp_sort_res(res3, q_res3, arr3_len));
   }
 }
 
@@ -83,5 +71,6 @@ void tearDown() {}
 int main() {
   UNITY_BEGIN();
   RUN_TEST(min_max_tests);
+  RUN_TEST(sort_tests);
   return UNITY_END();
 }

@@ -3,22 +3,22 @@
 
 // Compare both MinMax value
 // unit testing inu aanu  : )
-bool is_equal(MinMax *a, MinMax *b) {
+bool minmax_is_equal(MinMax *a, MinMax *b) {
   return a->max_val == b->max_val && a->min_val == b->min_val;
 }
 
 // Recursive function prototype
 // ee fn aan nammude problethinte soln
 // scope local , header il add cheythittilla : )
-MinMax get_min_max(int *arr, int begin, int end);
+MinMax _get_min_max(int *arr, int begin, int end);
 
 // function invoked by unit tests : )
 MinMax min_max(int *arr, int size) {
-  MinMax res = get_min_max(arr, 0, size - 1);
+  MinMax res = _get_min_max(arr, 0, size - 1);
   return res;
 }
 
-MinMax get_min_max(int *arr, int begin, int end) {
+MinMax _get_min_max(int *arr, int begin, int end) {
   // single element
   // 1 element matrame ullu engil min and max are same
   if (begin == end) {
@@ -54,20 +54,14 @@ MinMax get_min_max(int *arr, int begin, int end) {
      *    ...bakki swantham aayi cheyto : )
      */
 
-    MinMax LMinMax = get_min_max(arr, begin, mid);
-    MinMax RMinMax = get_min_max(arr, mid + 1, end);
+    MinMax LMinMax = _get_min_max(arr, begin, mid);
+    MinMax RMinMax = _get_min_max(arr, mid + 1, end);
     // Compare results from 2 halves and set the max value to result
-    if (LMinMax.max_val > RMinMax.max_val) {
-      res.max_val = LMinMax.max_val;
-    } else {
-      res.max_val = RMinMax.max_val;
-    }
+    res.max_val =
+        LMinMax.max_val > RMinMax.max_val ? LMinMax.max_val : RMinMax.max_val;
     // Compare results from 2 halves  and set the min value to result
-    if (LMinMax.min_val < RMinMax.min_val) {
-      res.min_val = LMinMax.min_val;
-    } else {
-      res.min_val = RMinMax.min_val;
-    }
+    res.min_val =
+        LMinMax.min_val < RMinMax.min_val ? LMinMax.min_val : RMinMax.min_val;
     return res;
   }
 };
