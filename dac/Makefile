@@ -1,6 +1,6 @@
 CC = clang
 CFLAGS = -Wall -Wextra -g
-# LDFLAGS=-fuse-ld=mold
+LDFLAGS=-fuse-ld=mold
 UNITY= ./../unity/src/unity.c
 
 SRC_DIR = ./src
@@ -10,10 +10,8 @@ TEST=./test/test.c
 TEST_EXEC=dac_test
 
 all: $(TEST_EXEC)
-
-# $(TEST_EXEC):
-# 	$(CC) $(CFLAGS) $(LDFLAGS) $(UNITY) $(SRC) $(TEST) -o $(TEST_EXEC)
-
+	
+	# uses  Mold linker change LDFLAGS to use ld : )
 $(TEST_EXEC):
 	$(CC) $(CFLAGS) $(LDFLAGS) $(UNITY) $(SRC) $(TEST) -o $(TEST_EXEC)
 
