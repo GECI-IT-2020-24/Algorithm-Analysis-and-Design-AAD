@@ -3,7 +3,7 @@
 
 #define get_len(arr) (sizeof(arr) / sizeof(arr[0]))
 
-void min_max_tests() {
+void min_max_tests(void) {
   // case 1 -> 1 element
   int arr1[] = {3};
   MinMax res1 = min_max(arr1, get_len(arr1));
@@ -23,7 +23,7 @@ void min_max_tests() {
   TEST_ASSERT_EQUAL(true, minmax_is_equal(&req3, &res3));
 }
 
-void sort_tests() {
+void sort_tests(void) {
   {
     // case 1 -> 1 element
     int arr1[] = {3};
@@ -64,11 +64,11 @@ void sort_tests() {
   }
 }
 
-void setUp() {}
+void setUp(void) {}
 
-void tearDown() {}
+void tearDown(void) {}
 
-int main() {
+int main(void) {
   UNITY_BEGIN();
   RUN_TEST(min_max_tests);
   RUN_TEST(sort_tests);

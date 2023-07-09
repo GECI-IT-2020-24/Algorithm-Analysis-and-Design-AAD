@@ -9,8 +9,8 @@ typedef struct {
   int max_val;
 } MinMax;
 
-MinMax min_max(int *arr, int size);
-bool minmax_is_equal(MinMax *a, MinMax *b);
+MinMax min_max(const int *arr, int size);
+bool minmax_is_equal(const MinMax *a, const MinMax *b);
 
 //---------------------------------->
 // Quick Sort : )
@@ -28,10 +28,10 @@ bool minmax_is_equal(MinMax *a, MinMax *b);
 //
 // int_cmp_asc can be used to sort 2 int array in ascending order : )
 
-int int_cmp_asc(void *, void *);
+int int_cmp_asc(const void *, const void *);
 // Warning : fn contains side effects . input array is modified
 void quick_sort(void *arr, int arr_size, size_t elem_size,
-                int cmp_fn(void *, void *));
+                int cmp_fn(const void *, const void *));
 
 // compare quick sort res with first param
 // for unit test : )

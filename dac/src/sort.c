@@ -1,13 +1,13 @@
 #include "dac.h"
 // Quick sort function prototype
 void _qsort(void *arr, size_t elem_size, int begin, int end,
-            int cmp_fn(void *, void *));
+            int cmp_fn(const void *, const void *));
 int _partition(void *arr, size_t elem_size, int begin, int end,
-               int cmp_fn(void *, void *));
+               int cmp_fn(const void *, const void *));
 // cast void pointer to int pointer and deref to get value
 // then subtract
 // if result is - ve then b is greater and b is chosen
-int int_cmp_asc(void *a, void *b) { return *(int *)a - *(int *)b; }
+int int_cmp_asc(const void *a, const void *b) { return *(int *)a - *(int *)b; }
 
 bool cmp_sort_res(int *req, int *q_res, int size) {
   for (int i = 0; i < size; i++) {
@@ -54,12 +54,12 @@ bool cmp_sort_res(int *req, int *q_res, int size) {
 #define _elem(base_ptr, pos, elem_size) ((void *)(base_ptr + pos * elem_size))
 
 void quick_sort(void *arr, int arr_size, size_t elem_size,
-                int cmp_fn(void *, void *)) {
+                int cmp_fn(const void *, const void *)) {
   _qsort(arr, elem_size, 0, arr_size - 1, cmp_fn);
 }
 
 void _qsort(void *arr, size_t elem_size, int begin, int end,
-            int cmp_fn(void *, void *)) {
+            int cmp_fn(const void *, const void *)) {
   if (begin < end) {
     // partition kazhinjal pivot in correct position
     // and after partition
@@ -73,7 +73,7 @@ void _qsort(void *arr, size_t elem_size, int begin, int end,
   }
 }
 int _partition(void *arr, size_t elem_size, int begin, int end,
-               int cmp_fn(void *, void *)) {
+               int cmp_fn(const void *, const void *)) {
   int i = begin + 1, j = end;
   // convert base address of arry to char pointer , oooro byte aayitt tranverse
   // cheyyan : )

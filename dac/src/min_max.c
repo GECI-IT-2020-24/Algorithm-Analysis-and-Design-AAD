@@ -3,22 +3,22 @@
 
 // Compare both MinMax value
 // unit testing inu aanu  : )
-bool minmax_is_equal(MinMax *a, MinMax *b) {
+bool minmax_is_equal(const MinMax *a, const MinMax *b) {
   return a->max_val == b->max_val && a->min_val == b->min_val;
 }
 
 // Recursive function prototype
 // ee fn aan nammude problethinte soln
 // scope local , header il add cheythittilla : )
-MinMax _get_min_max(int *arr, int begin, int end);
+MinMax _get_min_max(const int *arr, int begin, int end);
 
 // function invoked by unit tests : )
-MinMax min_max(int *arr, int size) {
+MinMax min_max(const int *arr, int size) {
   MinMax res = _get_min_max(arr, 0, size - 1);
   return res;
 }
 
-MinMax _get_min_max(int *arr, int begin, int end) {
+MinMax _get_min_max(const int *arr, int begin, int end) {
   // single element
   // 1 element matrame ullu engil min and max are same
   if (begin == end) {
