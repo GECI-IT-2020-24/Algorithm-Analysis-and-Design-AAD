@@ -11,6 +11,10 @@ This repository contains implementations of various algorithms such as divide an
 -   Minimum and maximum value in an array
 -   Quick sort
 
+### Greedy Algorithms
+
+-   Fractional Knapsack
+
 ## Installation and Testing
 
 To test and modify algorithms implemented in this repository, follow these steps:
@@ -21,7 +25,7 @@ To test and modify algorithms implemented in this repository, follow these steps
     git clone https://github.com/https://github.com/GECI-IT-2020-24/Algorithm-Analysis-and-Design-AAD
     ```
 
-2. compile and run the tests using
+2. compile and run the tests in each folder using
     ```bash
        chmod +x ./test.sh
        ./test.sh
